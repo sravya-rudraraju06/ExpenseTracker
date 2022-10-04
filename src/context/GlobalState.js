@@ -1,8 +1,5 @@
-// context api creating
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
-
-// Initial state (income +ve , expenses -ve)
 const initialState = {
   transactions: [
     // { id: 1, text: "Flower", amount: -20 },
@@ -12,16 +9,14 @@ const initialState = {
   ],
 };
 
-//create context    (global- as we are moving it to other files into components and we neeed to use it)
+//create context   
 export const GlobalContext = createContext(initialState);
 
-// Provider component( wrapping the App.js components here that is (children which is wrapping all components from App.js))
-// whenEver we need to call reducer action we need to use dispatch
+// Provider component
 export const GlobalProvider = ({children}) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
-  // state is initialState from above transactions and function having globalContext attached to it provider
-
-  // Actions
+  
+// Actions
   function deleteTransaction(id){
     dispatch({
       type: 'DELETE_TRANSACTION',
@@ -35,7 +30,6 @@ export const GlobalProvider = ({children}) => {
     });
   }
   return (
-    // in transactions above transacions are saved as a value object
     <GlobalContext.Provider
       value={{
         transactions: state.transactions,
