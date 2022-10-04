@@ -1,9 +1,6 @@
 import React , {useState,useContext} from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-
-// if we use input type in that wAY they need to be part of react( we use hook called useState )
-
 const AddTransaction = () => {
     // Hooks (setText is a function)
     const [text,setText] = useState('');
