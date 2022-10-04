@@ -1,6 +1,4 @@
-// reducer
 export default (state, action) => {
-  //Id (transaction type and add transaction and a default
   switch (action.type) {
     case 'DELETE_TRANSACTION':
       return {
